@@ -428,25 +428,18 @@ public class AddOrImportProjectFormTest {
     addOrImportForm.clickOnAddButton();
     addOrImportForm.waitProjectTabAppearance(SPRING_SAMPLE_NAME);
 
-    // check closing of "Workspace Is Created" dialog window
-    newWorkspace.clickOnBottomCreateButton();
-    newWorkspace.waitWorkspaceCreatedDialogIsVisible();
-
-    newWorkspace.closeWorkspaceCreatedDialog();
-    newWorkspace.waitWorkspaceCreatedDialogDisappearance();
     workspaceOverview.checkNameWorkspace(TEST_BLANK_WORKSPACE_NAME);
 
     seleniumWebDriver.navigate().back();
 
-    prepareJavaWorkspaceAndOpenCreateDialog(TEST_JAVA_WORKSPACE_NAME);
-    newWorkspace.clickOnEditWorkspaceButton();
+    prepareJavaWorkspace(TEST_JAVA_WORKSPACE_NAME);
+    newWorkspace.clickOnCreateButtonAndEditWorkspace();
     workspaceOverview.checkNameWorkspace(TEST_JAVA_WORKSPACE_NAME);
 
     seleniumWebDriver.navigate().back();
 
-    prepareJavaWorkspaceAndOpenCreateDialog(TEST_JAVA_WORKSPACE_NAME_EDIT);
-    newWorkspace.waitWorkspaceCreatedDialogIsVisible();
-    newWorkspace.clickOnOpenInIDEButton();
+    prepareJavaWorkspace(TEST_JAVA_WORKSPACE_NAME_EDIT);
+    newWorkspace.clickOnTopCreateButton();
 
     testWorkspaceServiceClient.waitStatus(
         TEST_JAVA_WORKSPACE_NAME_EDIT, defaultTestUser.getName(), RUNNING);
@@ -489,7 +482,7 @@ public class AddOrImportProjectFormTest {
     projectOptions.waitSaveButtonDisabling();
   }
 
-  private void prepareJavaWorkspaceAndOpenCreateDialog(String workspaceName) {
+  private void prepareJavaWorkspace(String workspaceName) {
     // prepare workspace
     newWorkspace.waitPageLoad();
     newWorkspace.typeWorkspaceName(workspaceName);
@@ -508,9 +501,5 @@ public class AddOrImportProjectFormTest {
         SPRING_SAMPLE_NAME,
         EXPECTED_SAMPLES_WITH_DESCRIPTIONS.get(SPRING_SAMPLE_NAME),
         EXPECTED_SPRING_REPOSITORY_URL);
-
-    // open create dialog
-    newWorkspace.clickOnBottomCreateButton();
-    newWorkspace.waitWorkspaceCreatedDialogIsVisible();
   }
 }
