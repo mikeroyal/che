@@ -428,6 +428,7 @@ public class AddOrImportProjectFormTest {
     addOrImportForm.clickOnAddButton();
     addOrImportForm.waitProjectTabAppearance(SPRING_SAMPLE_NAME);
 
+    newWorkspace.clickOnCreateButtonAndEditWorkspace();
     workspaceOverview.checkNameWorkspace(TEST_BLANK_WORKSPACE_NAME);
 
     seleniumWebDriver.navigate().back();

@@ -119,7 +119,7 @@ public class NewWorkspace {
     // buttons
     String TOP_CREATE_BUTTON_XPATH = "//button[@name='split-button']";
     String TOP_DROPDOWN_BUTTON_XPATH = "//button[@name='dropdown-toggle']";
-    String TOP_EDIT_BUTTON_XPATH = "//span[contains(text()='Proceed Editing']";
+    String TOP_EDIT_BUTTON_XPATH = "//span[text()='Create & Proceed Editing']";
     String BOTTOM_CREATE_BUTTON_XPATH = "//che-button-save-flat/button[@name='saveButton']";
     String ALL_BUTTON_ID = "all-stacks-button";
     String QUICK_START_BUTTON_ID = "quick-start-button";
